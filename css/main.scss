@@ -1,17 +1,139 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
 $cyan: hsl(179, 62%, 43%);
+$cyan-light: hsl(179, 47%, 52%);
 $bright-yellow: hsl(71, 73%, 54%);
 $light-gray: hsl(204, 43%, 93%);
 $grayish-blue: hsl(218, 22%, 67%);
+$white: #fff;
 
 *, *:before, *:after {
   box-sizing: border-box;
 }
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: 100vh;
   font-family: 'Karla', sans-serif;
   font-size: 16px;
+  font-weight: 400;
   vertical-align: baseline;
+  background-color: $light-gray;
+}
+
+.cyan {
+  color: $cyan;
+}
+h1 {
+  font-size: 1.4em;
+  margin: 0 0 1.1em 0;
+}
+h2 {
+  font-size: 1em;
+  margin: 0 0 1.1em 0;
+}
+p {
+  font-size: 0.9em;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+.container {
+  display: block;
+  width: 83%;
+  margin: auto;
+  margin-top: 2em;
+  box-shadow: 0px 6px 15px -5px rgba(114,132,137,0.92);
+}
+.box {
+  padding: 1.6em;
+  color: white;
+}
+.box1 {
+  background-color: white;
+  h2 {
+    color: $bright-yellow;
+  }
+  p {
+    color: $grayish-blue;
+  }
+}
+.box2 {
+  background-color: $cyan;
+
+  .per {
+    color: rgba($white, 0.7);
+  }
+  span {
+    font-size: 2em;
+    font-weight: 700;
+    line-height: normal;
+    margin-right: 10px;
+    color: white;
+  }
+  button {
+    width: 100%;
+    padding: 1.2em;
+    margin-top: 2em;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0px 5px 10px -1px rgba(0,0,0,0.10);
+    background-color: $bright-yellow;
+  }
+}
+.box3 {
+  background-color: $cyan-light;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    font-size: 0.9em;
+    color: rgba($white, 0.7);
+  }
+  li {
+    line-height: 1.6;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  h1 {
+    font-size: 1.4em;
+  }
+  h2 {
+    font-size: 1.2em;
+  }
+  p {
+    font-size: 1em;
+  }
+  .container {
+    display: grid;
+    grid-template-areas:
+    "box1 box1"
+    "box2 box3";
+    grid-template-columns: 50%;
+    width: 650px;
+    margin: auto;
+    background-color: white;
+
+    .box {
+      padding: 2.3em;
+    }
+  }
+  .box1 {
+    grid-area: box1;
+    border-radius: 6px 6px 0 0;
+  }
+  .box2 {
+    grid-area: box2;
+  }
+  .box3 {
+    grid-area: box3;
+  }
 }
